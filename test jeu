@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu de Devinette</title>
+</head>
+<body>
+    <h1>Jeu de Devinette</h1>
+    <p>Devinez un nombre entre 1 et 100</p>
+    <input type="number" id="guess">
+    <button onclick="checkGuess()">Deviner</button>
+    <p id="outcome"></p>
+    <script>
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        function checkGuess() {
+            const userGuess = document.getElementById('guess').value;
+            const outcome = document.getElementById('outcome');
+            if (userGuess == secretNumber) {
+                outcome.textContent = 'Félicitations ! Vous avez trouvé le bon nombre.';
+            } else if (userGuess < secretNumber) {
+                outcome.textContent = 'Trop bas ! Essayez encore.';
+            } else {
+                outcome.textContent = 'Trop haut ! Essayez encore.';
+            }
+        }
+    </script>
+</body>
+</html>
